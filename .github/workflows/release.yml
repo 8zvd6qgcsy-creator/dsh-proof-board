@@ -1,0 +1,53 @@
+name: release
+
+# 打一个 v* tag 就自动跑测试、打包、建 Release 并挂上 tgz。
+# 手工补发也可以：Actions → release → Run workflow，填要发版的 tag。
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 要发版的 tag（例如 v1.0.2）
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Tests
+        run: node --test test/*.test.mjs
+
+      - name: Pack
+        run: |
+          mkdir -p dist
+          npm pack --pack-destination dist
+          ls -l dist
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG 已存在，只补传产物"
+            gh release upload "$TAG" dist/*.tgz --clobber
+          else
+            gh release create "$TAG" dist/*.tgz \
+              --title "Proof Board ${TAG#v}" \
+              --generate-notes
+          fi
