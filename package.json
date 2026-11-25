@@ -1,6 +1,6 @@
 {
   "name": "dsh-proof-board",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "审阅台 · DeepSeek Harness 插件：把会话里的交付物摆成一墙看得见的卡片，逐项批注，一键把批注交回给 agent 改。Proof Board for DeepSeek Harness: a visual review wall for session deliverables, with per-item notes that go straight back to the agent.",
   "type": "module",
   "main": "index.js",

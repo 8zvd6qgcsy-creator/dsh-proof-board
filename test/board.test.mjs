@@ -1,7 +1,7 @@
 // lib/board.js 的单元测试：扫描、批注、交接清单。
 // 不需要装依赖：node --test test/*.test.mjs
 import assert from 'node:assert/strict'
-import { existsSync, mkdirSync, mkdtempSync, rmSync, utimesSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
@@ -165,6 +165,17 @@ test('writeHandoff 把清单写进工作区根目录', () => {
   const root = workspace([['a.pptx', 'x']])
   const file = writeHandoff(root, '# 审阅清单\n', new Date('2026-01-03T04:05:06.000Z'))
   assert.match(file, /审阅清单-20260103-0405\.md$/)
+  rmSync(root, { recursive: true, force: true })
+})
+
+test('notes.json 带 BOM 也能读（记事本改过的文件）', () => {
+  const root = workspace([['a.pptx', 'x']])
+  saveNote(root, 'a.pptx', { verdict: 'fix', text: '带 BOM 的批注' })
+  const file = join(home, 'proof-board', 'notes.json')
+  writeFileSync(file, '\uFEFF' + readFileSync(file, 'utf8'))
+  const notes = notesOf(root)
+  assert.equal(notes['a.pptx'].verdict, 'fix')
+  assert.equal(notes['a.pptx'].text, '带 BOM 的批注')
   rmSync(root, { recursive: true, force: true })
 })
 
