@@ -1,8 +1,18 @@
 # 审阅台 · Proof Board
 
-> 交付物不该埋在对话里。把它们摆上台面，逐项批注，一句话交回给 agent 去改。
+<p align="center">
+  <img alt="审阅台：工作区里的演示文稿排成一墙卡片，每张显示真实的首页缩略图，其中一张标着「待改」并写着批注" src="docs/screenshot.png" width="900">
+</p>
 
-![审阅台](docs/preview.svg)
+<p align="center">
+  <a href="https://github.com/8zvd6qgcsy-creator/dsh-proof-board/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/8zvd6qgcsy-creator/dsh-proof-board/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/8zvd6qgcsy-creator/dsh-proof-board/releases"><img alt="release" src="https://img.shields.io/github/v/release/8zvd6qgcsy-creator/dsh-proof-board?color=6f9dff"></a>
+  <a href="LICENSE"><img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-4fb67a"></a>
+  <img alt="DeepSeek Harness" src="https://img.shields.io/badge/DeepSeek%20Harness-0.2.x-8b5cf6">
+  <img alt="tests" src="https://img.shields.io/badge/tests-15%20passed-4fb67a">
+</p>
+
+> 交付物不该埋在对话里。把它们摆上台面，逐项批注，一句话交回给 agent 去改。
 
 给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）用的插件 + 技能包。
 
@@ -103,6 +113,7 @@ skills/            两个 skill
 locale/            中英文标题和描述
 docs/              插件详情图
 test/              node --test
+CHANGELOG.md       版本记录（Keep a Changelog 格式）
 ```
 
 ## 开发

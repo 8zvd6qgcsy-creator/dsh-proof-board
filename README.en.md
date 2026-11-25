@@ -1,8 +1,17 @@
 # Proof Board
 
-> Deliverables should not be buried in a chat log. Put them on a board, mark what to fix, hand the notes back to the agent.
+<p align="center">
+  <img alt="Proof Board: decks from the workspace laid out as cards, each showing its real cover slide, one marked fix with a note" src="docs/screenshot.png" width="900">
+</p>
 
-![Proof Board](docs/preview.svg)
+<p align="center">
+  <a href="https://github.com/8zvd6qgcsy-creator/dsh-proof-board/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/8zvd6qgcsy-creator/dsh-proof-board/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/8zvd6qgcsy-creator/dsh-proof-board/releases"><img alt="release" src="https://img.shields.io/github/v/release/8zvd6qgcsy-creator/dsh-proof-board?color=6f9dff"></a>
+  <a href="LICENSE"><img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-4fb67a"></a>
+  <img alt="DeepSeek Harness" src="https://img.shields.io/badge/DeepSeek%20Harness-0.2.x-8b5cf6">
+</p>
+
+> Deliverables should not be buried in a chat log. Put them on a board, mark what to fix, hand the notes back to the agent.
 
 A plugin + skill pack for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH).
 

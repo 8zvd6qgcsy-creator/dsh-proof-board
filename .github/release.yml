@@ -1,0 +1,34 @@
+# 自动生成 release notes 的分类规则（GitHub 会读这个文件）
+# 用法：gh release create <tag> --generate-notes
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+      - duplicate
+  categories:
+    - title: 🚀 新功能 Features
+      labels:
+        - feature
+        - enhancement
+    - title: 🐛 修复 Fixes
+      labels:
+        - bug
+        - fix
+    - title: ⚡️ 性能 Performance
+      labels:
+        - performance
+        - perf
+    - title: 🎨 台面界面 UI
+      labels:
+        - ui
+    - title: 📝 文档 Documentation
+      labels:
+        - documentation
+        - docs
+    - title: 🧹 杂项 Chores
+      labels:
+        - chore
+        - dependencies
+    - title: 其他 Other Changes
+      labels:
+        - '*'
