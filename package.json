@@ -35,6 +35,15 @@
     "skills"
   ],
   "license": "MIT",
+  "author": "8zvd6qgcsy-creator",
+  "homepage": "https://github.com/8zvd6qgcsy-creator/dsh-proof-board#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8zvd6qgcsy-creator/dsh-proof-board.git"
+  },
+  "bugs": {
+    "url": "https://github.com/8zvd6qgcsy-creator/dsh-proof-board/issues"
+  },
   "engines": {
     "node": "^22.19.0 || >=24.0.0",
     "dsh": ">=0.2.1-rc.2 <0.3.0"
