@@ -344,7 +344,10 @@ function card(item) {
       el('span', { class: 'name', text: item.name, title: item.rel }),
       el('span', { class: 'size', text: `${humanSize(item.bytes)} · ${shortTime(item.mtime)}` }),
     ),
-    el('div', { class: 'path', text: item.dir === '.' ? item.rel : item.dir, title: item.rel }),
+    // 工作区根目录的文件，文件名就是路径，再显示一行等于把名字写了两遍
+    ...(item.dir && item.dir !== '.'
+      ? [el('div', { class: 'path', text: item.dir, title: item.rel })]
+      : []),
     el('div', { class: 'verdicts' }, ...verdicts),
     textarea,
   )

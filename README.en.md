@@ -1,7 +1,9 @@
 # Proof Board
 
 <p align="center">
-  <img alt="Proof Board: decks from the workspace laid out as cards, each showing its real cover slide, one marked fix with a note" src="docs/screenshot.png" width="900">
+  <img alt="Proof Board: decks laid out as cards, each showing its real cover slide, with good/fix/TBD controls and a note field" src="docs/screenshot.png" width="900">
+  <br>
+  <sub>Demo data: eight decks, cover slides rendered live through officeKit</sub>
 </p>
 
 <p align="center">

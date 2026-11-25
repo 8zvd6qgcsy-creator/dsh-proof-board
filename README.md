@@ -1,7 +1,9 @@
 # 审阅台 · Proof Board
 
 <p align="center">
-  <img alt="审阅台：工作区里的演示文稿排成一墙卡片，每张显示真实的首页缩略图，其中一张标着「待改」并写着批注" src="docs/screenshot.png" width="900">
+  <img alt="审阅台：演示文稿排成一墙卡片，每张显示真实的首页缩略图，可以在卡片上标「通过 / 待改 / 待定」并写批注" src="docs/screenshot.png" width="900">
+  <br>
+  <sub>图为示例数据：八份演示稿的首屏缩略图由 officeKit 实时渲染</sub>
 </p>
 
 <p align="center">
