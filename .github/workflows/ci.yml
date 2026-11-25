@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Unit tests
+        run: node --test test/*.test.mjs
+      - name: Syntax check
+        run: |
+          node --check index.js
+          node --check client.js
+          node --check lib/index.js
+          node --check lib/board.js
+          node --check lib/tools.js
+          node --check lib/thumbs.js
+          node --check lib/skills.js
+          node --check web/app.js
+      - name: Manifest and locales
+        run: node -e "
+          const fs = require('node:fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          if (!pkg.dsh?.bundle?.patch) throw new Error('missing dsh.bundle.patch');
+          if (!pkg.dsh?.client?.platform) throw new Error('missing dsh.client.platform');
+          for (const lang of ['en', 'zh']) {
+            const locale = JSON.parse(fs.readFileSync('locale/' + lang + '.json', 'utf8'));
+            if (!locale.meta?.title || !locale.meta?.description) throw new Error('locale ' + lang + ' incomplete');
+            if (locale.meta.detail && !fs.existsSync(locale.meta.detail)) throw new Error('missing ' + locale.meta.detail);
+          }
+          for (const file of ['icon.svg', 'cordis.patch.yml', 'client.js', 'web/index.html']) {
+            if (!fs.existsSync(file)) throw new Error('missing ' + file);
+          }
+          console.log('manifest ok');
+          "

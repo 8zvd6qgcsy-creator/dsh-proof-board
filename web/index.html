@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>审阅台 · Proof Board</title>
+  <link rel="icon" href="/proof-board/icon.svg">
+  <link rel="stylesheet" href="/proof-board/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h11l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" />
+        <path d="M14.5 4v5h5" />
+        <path d="M8 13.5h8M8 17h5" />
+      </svg>
+      <span class="title" data-i18n="title">审阅台</span>
+      <span class="subtitle" data-i18n="subtitle">Proof Board</span>
+      <select id="ws" class="select" aria-label="工作区"></select>
+    </div>
+    <div class="controls">
+      <div class="chips" id="kinds" role="group" aria-label="类型筛选"></div>
+      <label class="search">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" />
+        </svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" data-i18n-ph="search" placeholder="搜文件名…" />
+      </label>
+    </div>
+  </header>
+
+  <main id="grid" class="grid" aria-live="polite"></main>
+
+  <footer class="bar">
+    <div id="stats" class="stats"></div>
+    <div class="actions">
+      <button id="refresh" class="btn ghost" data-i18n="refresh" title="刷新">刷新</button>
+      <button id="handoff" class="btn ghost" data-i18n="handoff">生成交接清单</button>
+      <button id="revise" class="btn primary" data-i18n="revise">把批注交给 agent</button>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/proof-board/app.js"></script>
+</body>
+</html>

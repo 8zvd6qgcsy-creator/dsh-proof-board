@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Proof Board",
+    "description": "A visual review wall for the deliverables in your workspace. Decks, documents, sheets, images, pages and PDFs from the current workspace line up as cards — Office files show their first page, pages and PDFs render live, images show as themselves. Mark each item good / fix / TBD, write one line of notes, then hand the whole set back to the agent as a checkout list.",
+    "detail": "docs/DETAIL.md"
+  }
+}

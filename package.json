@@ -1,0 +1,55 @@
+{
+  "name": "dsh-proof-board",
+  "version": "1.0.0",
+  "description": "审阅台 · DeepSeek Harness 插件：把会话里的交付物摆成一墙看得见的卡片，逐项批注，一键把批注交回给 agent 改。Proof Board for DeepSeek Harness: a visual review wall for session deliverables, with per-item notes that go straight back to the agent.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "icon": "./icon.svg",
+  "files": [
+    "index.js",
+    "lib",
+    "client.js",
+    "web",
+    "skills",
+    "locale/*.json",
+    "cordis.patch.yml",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "proof-board",
+    "review",
+    "deliverables",
+    "office",
+    "skills"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "pack": "node tools/pack.mjs"
+  }
+}

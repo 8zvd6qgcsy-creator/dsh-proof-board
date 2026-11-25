@@ -1,0 +1,5 @@
+# 审阅台 · Host 半边：注册扫描/批注/交接三个工具、一个 skill 提供方，以及 /proof-board 页面路由。
+# 浏览器半边由 package.json 的 dsh.client 声明加载（侧栏「审阅台」入口 + 主区面板）。
+- insert:
+    - id: proof-board
+      name: 'dsh-proof-board'
