@@ -1,0 +1,60 @@
+name: 🐛 Bug 报告
+description: 台面打不开、缩略图不出来、批注丢了之类的具体故障
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢反馈。**贴清楚复现步骤比写很多形容词有用**：
+        同样的问题，能复现的一分钟就能定位，不能复现的只能猜。
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么
+      description: 打开什么、点了什么、看到了什么
+      placeholder: |
+        打开侧栏「审阅台」后卡片区一片空白，只看到骨架屏。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期是什么
+      placeholder: 应该显示工作区里的 10 份 PPT 卡片。
+    validations:
+      required: true
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DSH 版本
+      description: 设置 → 关于，或 `dsh --version`
+      placeholder: 0.2.2-rc.5
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: 操作系统
+      placeholder: Windows 11 24H2 / macOS 15.2
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 出问题的部分
+      options:
+        - 卡片墙 / 扫描（列表、排序、筛选）
+        - 缩略图（PPT、Word、Excel 渲染）
+        - 批注（写入、读回、撤销）
+        - 交接清单 / 交给 agent
+        - 侧栏面板 / 主题语言
+        - 安装与卸载
+        - 其它
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志、截图或控制台报错
+      description: 浏览器开发者工具 Console 里的报错最有用；插件激活失败的信息在「插件 → 审阅台」详情里
+      render: shell

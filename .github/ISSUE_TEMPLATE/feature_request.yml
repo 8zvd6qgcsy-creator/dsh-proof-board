@@ -1,0 +1,35 @@
+name: ✨ 功能建议
+description: 想让审阅台多看一眼、多扛一种交付物、多一步动作
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提建议前先看一眼 [README 的「边界与隐私」](https://github.com/8zvd6qgcsy-creator/dsh-proof-board#边界与隐私)：
+        只读本机工作区、批注不联网，这两条不会为了功能让步。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你卡在哪一步
+      description: 描述场景，不要先说方案——先说你想做什么、现在为什么做不到
+      placeholder: |
+        我一晚做了四版 PPT，想在台面上并排比较 v1 和 v4 的同一页……
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你希望它怎么表现
+      placeholder: 选中两张卡片时出现「并排看」，左右各显示一份缩略图。
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 大概属于哪块
+      options:
+        - 台面交互（筛选、排序、选择）
+        - 预览渲染（新文件类型、更高的缩略图质量）
+        - 批注与清单
+        - 工具 / skill（给 agent 用的能力）
+        - 其它
+    validations:
+      required: true
